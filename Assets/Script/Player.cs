@@ -6,7 +6,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float padding = 1f;
+    [SerializeField] float padding = 0.5f;
+    [SerializeField] GameObject laser;
+    [SerializeField] float projectileSpeed = 10f;
+
     [SerializeField] float Xmin;
     [SerializeField] float Xmax;
     [SerializeField] float Ymin;
@@ -14,7 +17,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector2(transform.position.x, transform.position.y);
         setUpMoveBoundaries();
          
     }
@@ -24,14 +26,25 @@ public class Player : MonoBehaviour
         Camera gameCamera = Camera.main;
         Xmin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x + padding;
         Xmax = gameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x - padding;
-        Ymin = gameCamera.ViewportToWorldPoint(new Vector3(0,1,0)).y + padding;
-        Ymax = gameCamera.ViewportToWorldPoint(new Vector3(1, 1, 0)).y - padding;
+        Ymin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).y + padding;
+        Ymax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+        Fire();
+    }
+
+    private void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject PlayerLaser = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
+            PlayerLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            Destroy(PlayerLaser, 2f);
+        }
     }
 
     private void Move()
