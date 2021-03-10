@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float padding = 1f;
     [SerializeField] float Xmin;
     [SerializeField] float Xmax;
     [SerializeField] float Ymin;
@@ -21,10 +22,10 @@ public class Player : MonoBehaviour
     private void setUpMoveBoundaries()
     {
         Camera gameCamera = Camera.main;
-        Xmin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x;
-        Xmax = gameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x;
-        Ymin = gameCamera.ViewportToWorldPoint(new Vector3(0,1,0)).y;
-        Ymax = gameCamera.ViewportToWorldPoint(new Vector3(1, 1, 0)).y;
+        Xmin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x + padding;
+        Xmax = gameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x - padding;
+        Ymin = gameCamera.ViewportToWorldPoint(new Vector3(0,1,0)).y + padding;
+        Ymax = gameCamera.ViewportToWorldPoint(new Vector3(1, 1, 0)).y - padding;
     }
 
     // Update is called once per frame
