@@ -116,8 +116,13 @@ MonoBehaviour:
   projectile: {fileID: 8858811996406536367, guid: fb0c5eb078f4385438566c60a17fa744,
     type: 3}
   projectileSpeed: 5
-  deathVFX: {fileID: 0}
+  deathVFX: {fileID: 1123691522328635295, guid: 3738fafe646e059429db6bd6a584914a,
+    type: 3}
   durationOfExplosion: 1
+  deathSFX: {fileID: 8300000, guid: d885dbae3c1a0c442ba0ac8d1498dcff, type: 3}
+  deathSoundVolume: 0.75
+  shootSound: {fileID: 8300000, guid: 7ae9c200c73f037498dad32c140a2286, type: 3}
+  shootSoundVolume: 0.75
 --- !u!61 &-7848339541483436155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,3 +171,7 @@ MonoBehaviour:
   deathVFX: {fileID: 1123691522328635295, guid: 3738fafe646e059429db6bd6a584914a,
     type: 3}
   durationOfExplosion: 1
+  deathSFX: {fileID: 0}
+  deathSoundVolume: 0.75
+  shootSound: {fileID: 0}
+  shootSoundVolume: 0.75

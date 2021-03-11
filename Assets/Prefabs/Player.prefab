@@ -129,6 +129,13 @@ MonoBehaviour:
   moveSpeed: 15
   padding: 0.5
   health: 200
+  deathSFX: {fileID: 8300000, guid: d885dbae3c1a0c442ba0ac8d1498dcff, type: 3}
+  deathSoundVolume: 0.75
+  deathVFX: {fileID: 1123691522328635295, guid: 3738fafe646e059429db6bd6a584914a,
+    type: 3}
+  durationOfExplosion: 0.5
+  shootSound: {fileID: 8300000, guid: 8d562a00998c55544985d2b6e9dc2e89, type: 3}
+  shootSoundVolume: 0.75
   laser: {fileID: 8626187697423925423, guid: 616f8bdaf7fd866439498c61a6a1616a, type: 3}
   projectileSpeed: 10
   projectilePeriod: 0.2
